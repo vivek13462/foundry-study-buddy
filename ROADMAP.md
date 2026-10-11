@@ -11,11 +11,11 @@ Microsoft Azure AI Foundry. Each stage adds exactly one concept.
 | 2   | Tokenization | Tokens, context windows/management | ✅ done |
 | 3   | Prompt engineering | System prompts, few-shot | ✅ done |
 | 4   | Structured outputs | JSON schema, Pydantic | ✅ done |
-| 5   | Embeddings | Embeddings | ⬜ next |
-| 6   | Vector search | Vector DB / vector + hybrid search (Azure AI Search) | ⬜ |
-| 7   | RAG | Retrieval-Augmented Generation | ⬜ |
-| 8   | Tool / function calling | Function/tool calling | ⬜ |
-| 9   | AI agents | Single hosted agent (Foundry Agent Service) | ⬜ |
+| 5   | Embeddings | Embeddings | ✅ done |
+| 6   | Vector search | Vector DB / vector + hybrid search (Azure AI Search) | ✅ done |
+| 7   | RAG | Retrieval-Augmented Generation | ✅ done |
+| 8   | Tool / function calling | Function/tool calling | ✅ done |
+| 9   | AI agents | Managed prompt agent and conversation (Foundry Agent Service) | ⬜ next |
 | 9b  | Skills | Attaching tools/knowledge to an agent ("skills") | ⬜ NEW |
 | 10  | Agentic workflows | Multi-step agent loop (DIY harness) | ⬜ |
 | 10b | Agent harness & orchestration | Runtime loop + Microsoft Agent Framework (sequential/concurrent/group-chat/handoff/Magentic) | ⬜ NEW |
