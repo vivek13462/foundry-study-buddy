@@ -15,8 +15,8 @@ Microsoft Azure AI Foundry. Each stage adds exactly one concept.
 | 6   | Vector search | Vector DB / vector + hybrid search (Azure AI Search) | ✅ done |
 | 7   | RAG | Retrieval-Augmented Generation | ✅ done |
 | 8   | Tool / function calling | Function/tool calling | ✅ done |
-| 9   | AI agents | Managed prompt agent and conversation (Foundry Agent Service) | ⬜ next |
-| 9b  | Skills | Attaching tools/knowledge to an agent ("skills") | ⬜ NEW |
+| 9   | AI agents | Managed prompt agent and conversation (Foundry Agent Service) | ✅ done |
+| 9b  | Skills | Reusable SKILL.md instructions, explicit local injection first | ⬜ next |
 | 10  | Agentic workflows | Multi-step agent loop (DIY harness) | ⬜ |
 | 10b | Agent harness & orchestration | Runtime loop + Microsoft Agent Framework (sequential/concurrent/group-chat/handoff/Magentic) | ⬜ NEW |
 | 10c | Multi-agent systems | Connected / orchestrated agents | ⬜ NEW |
@@ -39,4 +39,5 @@ Microsoft Azure AI Foundry. Each stage adds exactly one concept.
 ## Key concept mapping
 - MCP  = connects an agent to TOOLS/DATA.
 - A2A  = connects an agent to OTHER AGENTS (cross-system).
-- Skill = an agent-facing capability = a tool/knowledge source attached to an agent.
+- Skill = reusable task instructions, optionally with reference files and scripts; not just a tool.
+- Stage 9b explicitly injects one local skill into a prompt agent. It does not register a Foundry Skills API resource or implement automatic discovery/on-demand loading.
