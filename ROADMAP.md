@@ -16,8 +16,8 @@ Microsoft Azure AI Foundry. Each stage adds exactly one concept.
 | 7   | RAG | Retrieval-Augmented Generation | ✅ done |
 | 8   | Tool / function calling | Function/tool calling | ✅ done |
 | 9   | AI agents | Managed prompt agent and conversation (Foundry Agent Service) | ✅ done |
-| 9b  | Skills | Reusable SKILL.md instructions, explicit local injection first | ⬜ next |
-| 10  | Agentic workflows | Multi-step agent loop (DIY harness) | ⬜ |
+| 9b  | Skills | Reusable SKILL.md instructions, explicit local injection first | ✅ done |
+| 10  | Agentic workflows | Multi-step agent loop (DIY harness) | ⬜ next |
 | 10b | Agent harness & orchestration | Runtime loop + Microsoft Agent Framework (sequential/concurrent/group-chat/handoff/Magentic) | ⬜ NEW |
 | 10c | Multi-agent systems | Connected / orchestrated agents | ⬜ NEW |
 | 10d | A2A | Agent-to-agent protocol across systems (Foundry A2A tool) | ⬜ NEW |
