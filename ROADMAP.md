@@ -18,8 +18,8 @@ Microsoft Azure AI Foundry. Each stage adds exactly one concept.
 | 9   | AI agents | Managed prompt agent and conversation (Foundry Agent Service) | ✅ done |
 | 9b  | Skills | Reusable SKILL.md instructions, explicit local injection first | ✅ done |
 | 10  | Agentic workflows | Multi-step agent loop (DIY harness) | ✅ done |
-| 10b | Agent harness & orchestration | Replace the DIY loop with Agent Framework; distinguish tool loops from workflow orchestration | ⬜ next |
-| 10c | Multi-agent systems | Connected / orchestrated agents | ⬜ NEW |
+| 10b | Agent harness & orchestration | Replace the DIY loop with Agent Framework; distinguish tool loops from workflow orchestration | ✅ done |
+| 10c | Multi-agent systems | Sequential Researcher -> Tutor; compare application-owned and service-managed agents | ⬜ next |
 | 10d | A2A | Agent-to-agent protocol across systems (Foundry A2A tool) | ⬜ NEW |
 | 11  | Memory | Memory systems (threads/state) | ⬜ |
 | 12  | MCP | Model Context Protocol (tools/data) | ⬜ |

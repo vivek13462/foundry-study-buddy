@@ -5,7 +5,7 @@ import json
 import os
 from collections.abc import Callable
 
-from agent_framework import Agent, tool
+from agent_framework import Agent, AgentResponse, FunctionTool, tool
 from agent_framework.foundry import FoundryChatClient
 from azure.ai.projects.aio import AIProjectClient
 from azure.identity.aio import DefaultAzureCredential
@@ -27,10 +27,9 @@ QUESTION = (
 )
 
 
-def build_agent(
-    client: FoundryChatClient,
+def build_search_tool(
     retrieve: Callable[[str], list[dict[str, str]]],
-) -> Agent:
+) -> FunctionTool:
     @tool(schema=SearchArguments)
     async def search_knowledge(query: str) -> str:
         """Search Study Buddy's knowledge base for project facts."""
@@ -42,6 +41,13 @@ def build_agent(
         print(f"Tool result: {json.dumps(result)}")
         return json.dumps(result)
 
+    return search_knowledge
+
+
+def build_agent(
+    client: FoundryChatClient,
+    retrieve: Callable[[str], list[dict[str, str]]],
+) -> Agent:
     @tool(schema=MultiplyArguments)
     def multiply_numbers(left: int, right: int) -> str:
         """Multiply two integers, each with absolute value at most one billion."""
@@ -64,14 +70,12 @@ def build_agent(
         client=client,
         name="StudyBuddyFramework",
         instructions=INSTRUCTIONS,
-        tools=[search_knowledge, multiply_numbers],
+        tools=[build_search_tool(retrieve), multiply_numbers],
         default_options={"max_tokens": 800, "allow_multiple_tool_calls": False},
     )
 
 
-async def run_agent(agent: Agent, question: str = QUESTION) -> str:
-    print(f"Q: {question}")
-    response = await agent.run(question)
+def validate_response(response: AgentResponse) -> str:
     # Frameworks can turn tool exceptions into model-visible error results.
     # Don't report a recovered prose answer as a successful run of failed tools.
     for message in response.messages:
@@ -84,8 +88,14 @@ async def run_agent(agent: Agent, question: str = QUESTION) -> str:
         raise RuntimeError(f"Agent response did not finish normally: {response.finish_reason}")
     if not response.text.strip():
         raise RuntimeError("Agent returned no final text")
-    print(f"\nFinal answer:\n{response.text}")
     return response.text
+
+
+async def run_agent(agent: Agent, question: str = QUESTION) -> str:
+    print(f"Q: {question}")
+    text = validate_response(await agent.run(question))
+    print(f"\nFinal answer:\n{text}")
+    return text
 
 
 async def main() -> None:
