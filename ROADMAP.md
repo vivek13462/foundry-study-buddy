@@ -17,8 +17,8 @@ Microsoft Azure AI Foundry. Each stage adds exactly one concept.
 | 8   | Tool / function calling | Function/tool calling | ✅ done |
 | 9   | AI agents | Managed prompt agent and conversation (Foundry Agent Service) | ✅ done |
 | 9b  | Skills | Reusable SKILL.md instructions, explicit local injection first | ✅ done |
-| 10  | Agentic workflows | Multi-step agent loop (DIY harness) | ⬜ next |
-| 10b | Agent harness & orchestration | Runtime loop + Microsoft Agent Framework (sequential/concurrent/group-chat/handoff/Magentic) | ⬜ NEW |
+| 10  | Agentic workflows | Multi-step agent loop (DIY harness) | ✅ done |
+| 10b | Agent harness & orchestration | Replace the DIY loop with Agent Framework; distinguish tool loops from workflow orchestration | ⬜ next |
 | 10c | Multi-agent systems | Connected / orchestrated agents | ⬜ NEW |
 | 10d | A2A | Agent-to-agent protocol across systems (Foundry A2A tool) | ⬜ NEW |
 | 11  | Memory | Memory systems (threads/state) | ⬜ |
@@ -41,3 +41,4 @@ Microsoft Azure AI Foundry. Each stage adds exactly one concept.
 - A2A  = connects an agent to OTHER AGENTS (cross-system).
 - Skill = reusable task instructions, optionally with reference files and scripts; not just a tool.
 - Stage 9b explicitly injects one local skill into a prompt agent. It does not register a Foundry Skills API resource or implement automatic discovery/on-demand loading.
+- Stage 10b uses a basic Agent with two local tools, not the larger Harness preset. Multi-agent orchestration patterns are introduced in Stage 10c.
